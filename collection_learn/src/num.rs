@@ -15,12 +15,12 @@ pub mod real_number {
 
     /**
      * 加法
-    */
+     */
     impl Add<&RationalNumber> for RationalNumber {
         type Output = RationalNumber;
 
         #[inline]
-        fn add(mut self, o: &RationalNumber) -> RationalNumber {
+        fn add(self, o: &RationalNumber) -> RationalNumber {
             let mut f1: f64 = 0f64;
             let mut i1: i128 = 0;
 
@@ -35,13 +35,11 @@ pub mod real_number {
 
             let a = f1 + i1 as f64;
 
-            self = if a > a as i128 as f64 {
+            if a > a as i128 as f64 {
                 RationalNumber::Float(a)
             } else {
                 RationalNumber::Int(a as i128)
-            };
-
-            self
+            }
         }
     }
 

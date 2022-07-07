@@ -21,6 +21,10 @@ pub mod vec_test {
         // println!("{:?}", v_r);
         // println!("{:?}", v)
         println!("--------------------");
+        match v.get(1) {
+            Some(i) => println!("{}", *i),
+            None => println!("out of vec bounds"),
+        }
     }
 
     fn for_each(v: &Vec<i32>) -> Vec<u128> {
@@ -59,6 +63,7 @@ pub mod vec_test {
  * String测试
 */
 pub mod string_test {
+
     pub fn test() {
         let mut s = String::new();
         s.push_str("Hello Everyone!");
