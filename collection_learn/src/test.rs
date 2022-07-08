@@ -102,6 +102,12 @@ pub mod hash_map_test {
         let mut scores = HashMap::new();
         scores.insert(String::from("test"), 10f64);
         scores.insert(String::from("test1"), 10.2f64);
-        println!("{:?}", scores.get(&String::from("test")));
+        println!(
+            "{:?}",
+            scores.get(&String::from("test")).expect("empty key")
+        );
+
+        scores.entry(String::from("test")).or_insert(10_025.563);
+        println!("{:?}", scores);
     }
 }
